@@ -9,9 +9,30 @@
 import SwiftUI
 
 struct ContentView : View {
+    @State private var count = 0
+    
     var body: some View {
-        Text("Hello World")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        VStack {
+            Text("Count: \(count)")
+            HStack {
+                Button(action: incrementCount) {
+                    Text("Increment ➕")
+                }
+                Button(action: decrementCount) {
+                    Text("Decrement ➖")
+                }
+            }
+        }
+            .frame(minWidth: 250, maxWidth: .infinity,
+                   minHeight: 200, maxHeight: .infinity)
+    }
+    
+    private func decrementCount() {
+        count -= 1
+    }
+    
+    private func incrementCount() {
+        count += 1
     }
 }
 
